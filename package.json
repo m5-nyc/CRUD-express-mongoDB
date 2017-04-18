@@ -11,7 +11,9 @@
   "author": "Chris Maverick <cmaverickce@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2"
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
