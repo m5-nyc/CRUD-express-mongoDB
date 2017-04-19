@@ -15,10 +15,17 @@ MongoClient.connect(linkToMongodb, (err, database) => {
 
 // app.use method is for middlewares
 // place before handlers
+app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+  // res.sendFile(__dirname + '/index.html')
+  db.collection('quotes').find().toArray(function(err, results){
+    if(err) return console.log(err)
+    // renders index.ejs
+    res.render('index.ejs', {quotes: results
+    })
+  })
 })
 
 app.post('/quotes', (req, res) => {
